@@ -1,0 +1,11 @@
+.git
+.sass-cache
+.vagrant
+Vagrantfile
+src/sites/default/files
+design
+*.sql
+*.gz
+*.py
+*.dump
+

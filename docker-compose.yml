@@ -1,0 +1,24 @@
+version: '3'
+services:
+  web:
+    # build: docker/images/docker-nginx-php
+    container_name: albertshen-nginx-php-mrbrand
+    image: albertshen1206/ubuntu-nginx-php:v1.1
+    ports:
+     - "8083:80"
+    links:
+    # Choose database, uncomment service concerned below.
+      - db
+    volumes:
+     - ./src:/var/www/html:cached
+  db:
+    # container_name: albertshen-mysql
+    image: mysql:5.7
+    # command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+    ports:
+     - "33063:3306"
+    # volumes:
+    #  - ./docker/db/mysql:/var/lib/mysql:cached
